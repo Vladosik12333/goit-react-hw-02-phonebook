@@ -18,7 +18,11 @@ export default class App extends Component {
   };
 
   submitContact = (name, number) => {
-    if (this.state.contacts.find(contact => contact.name === name))
+    if (
+      this.state.contacts.find(
+        contact => contact.name.toLowerCase() === name.toLowerCase(),
+      )
+    )
       return alert(`${name} is already in contacts.`);
 
     this.setState(state => {
